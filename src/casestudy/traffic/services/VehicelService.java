@@ -53,18 +53,18 @@ public class VehicelService {
             Vehicle vehicle = null;
             switch (choice) {
                 case 1:
-                    String carType = view.getInput("Nhập kiểu xe: ");
-                    int seats = Integer.parseInt(view.getInput("Nhập số chỗ ngồi: "));
+                    String carType = view.getInput("Enter car type: ");
+                    int seats = Integer.parseInt(view.getInput("Enter seats: "));
                     vehicle = new Cars(licensePlate, manufacturer, productionYear, ownerName, carType, seats);
                     FileExcutor.writeFile("cars.csv", vehicle.toString());
                     break;
                 case 2:
-                    double payload = Double.parseDouble(view.getInput("Nhập trọng tải: "));
+                    double payload = Double.parseDouble(view.getInput("Enter weight: "));
                     vehicle = new Truck(licensePlate, manufacturer, productionYear, ownerName, payload);
                     FileExcutor.writeFile("trucks.csv", vehicle.toString());
                     break;
                 case 3:
-                    int engineCapacity = Integer.parseInt(view.getInput("Nhập công suất: "));
+                    int engineCapacity = Integer.parseInt(view.getInput("Enter capacity: "));
                     vehicle = new Motocycle(licensePlate, manufacturer, productionYear, ownerName, engineCapacity);
                     FileExcutor.writeFile("motocycles.csv", vehicle.toString());
                     break;
@@ -109,7 +109,7 @@ public class VehicelService {
                     return;
             }
             String regex = "^[0-9]{2}[A-Z]-[0-9]{3}\\.[0-9]{2}$";
-            String licensePlate = view.getInput("Nhập biển kiểm soát phương tiện cần xóa: ");
+            String licensePlate = view.getInput("Enter license plate to delete: ");
 
             if (licensePlate.matches(regex)) {
                 view.printMessage("License plate: " + licensePlate + " not correct");
